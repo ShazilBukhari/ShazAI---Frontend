@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import "./chat.css"
+import "./Chat.css"
 import { ToastContainer, toast, Bounce } from 'react-toastify';
 
 
