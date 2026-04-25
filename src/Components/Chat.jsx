@@ -39,7 +39,7 @@ const Chat = () => {
     setuserMsg("")
     setisLoading(true)
     try {
-      const res = await axios.post("http://127.0.0.1:5000/api/chat",
+      const res = await axios.post("https://shazai-backend.onrender.com/api/chat",
         {
           message: userMsg,
           session: sessionId
@@ -89,7 +89,7 @@ const Chat = () => {
   useEffect(() => {
     const fetchsidebar = async () => {
       try {
-        const res = await axios.get("http://127.0.0.1:5000/api/session", {
+        const res = await axios.get("https://shazai-backend.onrender.com/api/session", {
           headers: { Authorization: `Bearer ${token}` }
         })
         sethistory(res.data)
@@ -103,7 +103,7 @@ const Chat = () => {
 
   const loadChat = async (id) => {
     try {
-      const res = await axios.get(`http://127.0.0.1:5000/api/history/${id}`, {
+      const res = await axios.get(`https://shazai-backend.onrender.com/api/history/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       const formatted = res.data.map(msg => ({
@@ -119,7 +119,7 @@ const Chat = () => {
 
   const handleDelete = async (id) => {
     try {
-      const res = await axios.delete(`http://127.0.0.1:5000/api/delete-session/${id}`, {
+      const res = await axios.delete(`https://shazai-backend.onrender.com/api/delete-session/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       toast.success(res.data.message)
